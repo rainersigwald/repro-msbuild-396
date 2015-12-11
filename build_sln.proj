@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Build">
+    <MSBuild BuildInParallel="true"
+             Projects="ClassLibrary1.sln">
+      <Output TaskParameter="TargetOutputs" ItemName="SolutionOutputs" />
+    </MSBuild>
+
+    <Message Importance="high"
+             Text="Solution outputs: @(SolutionOutputs)" />
+  </Target>
+</Project>

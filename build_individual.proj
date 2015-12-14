@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Project Include="ClassLibrary1\ClassLibrary1.csproj" />
+    <Project Include="ClassLibrary2\ClassLibrary2.csproj" />
+    <Project Include="ClassLibrary3\ClassLibrary3.csproj" />
+  </ItemGroup>
+
+  <Target Name="Build">
+    <MSBuild BuildInParallel="true"
+             Projects="@(Project)">
+      <Output TaskParameter="TargetOutputs" ItemName="ProjectOutputs" />
+    </MSBuild>
+
+    <Message Importance="high"
+             Text="Solution outputs: @(ProjectOutputs)" />
+  </Target>
+</Project>
